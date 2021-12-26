@@ -4,18 +4,17 @@ import (
 	"bufio"
 	"log"
 	"os"
-	"strconv"
 )
 
-func ReadInts(in string) []int {
+func ReadLine[T any](in string, parser func(string) (T, error)) []T {
 	file, err := os.Open(in)
 	check(err, "open input")
 	defer file.Close()
 	scanner := bufio.NewScanner(file)
-	res := []int{}
+	res := []T{}
 	for scanner.Scan() {
-		v, err := strconv.Atoi(scanner.Text())
-		check(err, "parse int")
+		v, err := parser(scanner.Text())
+		check(err, "parse ")
 		res = append(res, v)
 	}
 
