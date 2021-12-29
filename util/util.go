@@ -24,6 +24,10 @@ func ReadLine[T any](in string, parser func(string) (T, error)) []T {
 	return res
 }
 
+func ReadLines(in string) []string {
+	return ReadLine(in, func(v string) (string, error) { return v, nil })
+}
+
 func check(err error, ctx string) {
 	if err != nil {
 		log.Fatalln(ctx, err)
