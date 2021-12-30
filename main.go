@@ -18,6 +18,8 @@ var sols = map[string]func(){
 	"5_2": sol5_2,
 	"6_1": sol6_1,
 	"6_2": sol6_2,
+	"7_1": sol7_1,
+	"7_2": sol7_2,
 }
 
 func main() {
